@@ -1,6 +1,5 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons"
 import "./Navbar.scss";
-import profilePic from "../../assets/images/pondi.jpg"
 import { useState } from "react";
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +26,7 @@ const Navbar = () => {
                 <Search className="icons"/>
                 <span>KID</span>
                 <Notifications className="icons"/>
-                <img src={profilePic} 
+                <img src="https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg" 
                 alt="" />
                 <div className="profile">
                     <ArrowDropDown className="icons"/>
