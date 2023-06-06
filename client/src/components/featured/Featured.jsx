@@ -1,12 +1,32 @@
+import { useEffect, useState } from "react";
 import "./featured.scss";
+import axios from "axios";
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 
 export const Featured = ({type}) => {
+    const [content,setContent] = useState({});
+
+    useEffect(()=>{
+        const getRandomContent = async () => {
+            try {
+                const res = await axios.get(`/movies/random?type=${type}`,{
+                    headers:{
+                      token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk2Njg5OCwiZXhwIjoxNjg2Mzk4ODk4fQ.OSC0jiUe5Pgn_698gJjOfzVCwnmpmM2rFs0mwtweLLQ"
+                    }
+                  })
+                  setContent(res.data[0])
+            } catch (err) {
+                console.log(err)  
+            }
+        }
+        getRandomContent()
+        console.log(content)
+    },[type])
   return (
     <div className="featured">
         {type && (
             <div className="category">
-                <span>{type === "movie" ? "Movies": "Series"}</span>
+                <span>{type === "movies" ? "Movies": "Series"}</span>
                 <select name="genre" id="genre">
                 <option>Genre</option>
                 <option value="adventure">Adventure</option>
@@ -25,13 +45,13 @@ export const Featured = ({type}) => {
             </select>
             </div>
         )}
-        <img src="https://rare-gallery.com/uploads/posts/514548-game-of-thrones.jpg" alt="" />
+        <img src={content.img} alt="" />
         <div className="info">
             <img src="https://see.fontimg.com/api/renderfont4/vm88Z/eyJyIjoiZnMiLCJoIjozNiwidyI6MjAwMCwiZnMiOjE4LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0YzRjNGMyIsInQiOjF9/R0FNRSBPRiBUSFJPTkVT/roveyfree-regular.png" 
             alt="" 
             className="featuredTitle"/>
             <span className="desc">
-            The power struggles among noble families in the Westeros, as they battle for control of the Iron Throne.
+            {content.desc}
             </span>
             <div className="buttons">
                 <button className="play">
