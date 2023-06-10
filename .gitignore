@@ -27,8 +27,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/admin//node_modules
-/admin//.pnp
+/admin/node_modules
+/admin/.pnp
 /admin/.pnp.js
 
 # testing
