@@ -14,13 +14,12 @@ export const Featured = ({type}) => {
                       token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NTk2Njg5OCwiZXhwIjoxNjg2Mzk4ODk4fQ.OSC0jiUe5Pgn_698gJjOfzVCwnmpmM2rFs0mwtweLLQ"
                     }
                   })
-                  setContent(res.data[0])
+                  setContent(res.data)
             } catch (err) {
                 console.log(err)  
             }
         }
         getRandomContent()
-        console.log(content)
     },[type])
   return (
     <div className="featured">
@@ -45,13 +44,13 @@ export const Featured = ({type}) => {
             </select>
             </div>
         )}
-        <img src={content.img} alt="" />
+        <img src="https://rare-gallery.com/uploads/posts/514548-game-of-thrones.jpg" alt="" />
         <div className="info">
             <img src="https://see.fontimg.com/api/renderfont4/vm88Z/eyJyIjoiZnMiLCJoIjozNiwidyI6MjAwMCwiZnMiOjE4LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0YzRjNGMyIsInQiOjF9/R0FNRSBPRiBUSFJPTkVT/roveyfree-regular.png" 
             alt="" 
             className="featuredTitle"/>
             <span className="desc">
-            {content.desc}
+            The power struggles among noble families in the Westeros, as they battle for control of the Iron Throne.
             </span>
             <div className="buttons">
                 <button className="play">
