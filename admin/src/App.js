@@ -13,12 +13,15 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
+import ListList from "./pages/listList/listList";
 
 function App() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
+  const user = true;
   return (
     <Router>
       <Switch>
+        {/* <Login /> */}
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
         {user && (
           <>
@@ -46,6 +49,15 @@ function App() {
               <Route path="/newproduct">
                 <NewProduct />
               </Route>
+              <Route path="/lists">
+                <ListList />
+              </Route>
+              {/* <Route path="/list/:listId">
+                <Product />
+              </Route>
+              <Route path="/newlist">
+                <NewProduct />
+              </Route> */}
             </div>
           </>
         )}
