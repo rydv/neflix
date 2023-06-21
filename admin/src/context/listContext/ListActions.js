@@ -24,27 +24,27 @@ export const deleteListFailure = () => ({
     type: "DELETE_LIST_FAILURE"
 });
 
-// export const creatListStart = () => ({
-//     type: "CREATE_LIST_START"
-// });
+export const createListStart = () => ({
+    type: "CREATE_LIST_START"
+});
 
-// export const creatListSuccess = (movie) => ({
-//     type: "CREATE_LIST_SUCCESS",
-//     payload: movie,
-// });
+export const createListSuccess = (list) => ({
+    type: "CREATE_LIST_SUCCESS",
+    payload: list,
+});
 
-// export const creatListFailure = () => ({
-//     type: "CREATE_LIST_FAILURE"
-// });
-// export const updatListStart = () => ({
-//     type: "UPDATE_LIST_START"
-// });
+export const createListFailure = () => ({
+    type: "CREATE_LIST_FAILURE"
+});
+export const updatListStart = () => ({
+    type: "UPDATE_LIST_START"
+});
 
-// export const updatListSuccess = (movie) => ({
-//     type: "UPDATE_LIST_SUCCESS",
-//     payload: movie,
-// });
+export const updatListSuccess = (list) => ({
+    type: "UPDATE_LIST_SUCCESS",
+    payload: list,
+});
 
-// export const updatListFailure = () => ({
-//     type: "UPDATE_LIST_FAILURE"
-// });
+export const updatListFailure = () => ({
+    type: "UPDATE_LIST_FAILURE"
+});

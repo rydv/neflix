@@ -14,6 +14,8 @@ import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
 import ListList from "./pages/listList/listList";
+import List from "./pages/list/List";
+import NewList from "./pages/newList/newList";
 
 function App() {
   // const { user } = useContext(AuthContext);
@@ -52,12 +54,12 @@ function App() {
               <Route path="/lists">
                 <ListList />
               </Route>
-              {/* <Route path="/list/:listId">
-                <Product />
+              <Route path="/list/:listId">
+                <List />
               </Route>
               <Route path="/newlist">
-                <NewProduct />
-              </Route> */}
+                <NewList />
+              </Route>
             </div>
           </>
         )}

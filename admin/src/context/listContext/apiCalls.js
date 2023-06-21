@@ -1,8 +1,8 @@
 import axios from "axios";
 import { 
-  // createListFailure, 
-  // createListStart, 
-  // createListSuccess,
+  createListFailure, 
+  createListStart, 
+  createListSuccess,
   deleteListFailure, 
   deleteListStart, 
   deleteListSuccess, 
@@ -26,21 +26,21 @@ export const getLists = async (dispatch) => {
   }
 };
 
-//createMovie
-// export const createMovie = async (movie,dispatch) => {
-//   dispatch(createMovieStart());
-//   try {
-//     const res = await axios.post("/movies/",movie,{
-//       headers: {
-//         // token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
-//         token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE",
-//     },
-//     });
-//     dispatch(createMovieSuccess(res.data));
-//   } catch (err) {
-//     dispatch(createMovieFailure());
-//   }
-// };
+//createList
+export const createList = async (list,dispatch) => {
+  dispatch(createListStart());
+  try {
+    const res = await axios.post("/lists/",list,{
+      headers: {
+        // token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
+        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE",
+    },
+    });
+    dispatch(createListSuccess(res.data));
+  } catch (err) {
+    dispatch(createListFailure());
+  }
+};
 
 //delete
 export const deleteList = async (id,dispatch) => {
@@ -52,7 +52,6 @@ export const deleteList = async (id,dispatch) => {
         token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE",
     },
     });
-    console.log('deleted id: '+ id)
     dispatch(deleteListSuccess(id));
   } catch (err) {
     dispatch(deleteListFailure());
