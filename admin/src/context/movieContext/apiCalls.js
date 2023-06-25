@@ -6,8 +6,7 @@ export const getMovies = async (dispatch) => {
   try {
     const res = await axios.get("/movies",{
       headers: {
-        // token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
-        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE",
+        token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
     },
     });
     dispatch(getMoviesSuccess(res.data));
@@ -22,8 +21,7 @@ export const createMovie = async (movie,dispatch) => {
   try {
     const res = await axios.post("/movies/",movie,{
       headers: {
-        // token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
-        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE",
+        token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
     },
     });
     dispatch(createMovieSuccess(res.data));
@@ -38,8 +36,7 @@ export const deleteMovie = async (id,dispatch) => {
   try {
     await axios.delete("/movies/"+id,{
       headers: {
-        // token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
-        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE",
+        token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
     },
     });
     dispatch(deleteMovieSuccess(id));

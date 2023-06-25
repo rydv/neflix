@@ -7,16 +7,18 @@ import axios from "axios";
 
 
 const Home = () => {
-  const type = window.location.pathname.split('/')[1]
+  // const [type,setType] = useState("")
+  const arg = window.location.pathname.split('/')[1] 
+  const types= ['series','movie']
+  const type = types.includes(arg) ? arg : "";
   const [lists,setLists] = useState([]);
   const [genre,setGenre] = useState(null);
-
   useEffect(()=>{
     const getRandomLists = async () =>{
-      try {
+      try {  
         const res = await axios.get(`lists${type ? "?type="+type : ""}${genre ? "&genre=" + genre : ""}`,{
           headers:{
-            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Njk5ZjIzOTliZDUwYjJhMWFmMmFmYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4Njk5MzE4NiwiZXhwIjoxNjg3NDI1MTg2fQ.IGlYCQNzbghpjkT8WwcnyUrsEemNPXqSFxVYh4OfUkE"
+            token: "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
           }
         });
         setLists(res.data)

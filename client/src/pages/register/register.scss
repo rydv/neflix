@@ -11,6 +11,7 @@
 
     .top{
         .wrapper{
+            cursor: pointer;
             padding: 20px 50px;
             display: flex;
             align-items: center;
@@ -28,9 +29,6 @@
                 padding: 5px 15px;
                 font-size: 16px;
                 font-weight: 500;
-            }
-            button{
-                cursor: pointer;
             }
         }
     }
@@ -85,6 +83,10 @@
                 font-size: 17px;
                 cursor: pointer;
             }
+        }
+        span{
+           margin-top: 20px;   
+           font-size: 15px;  
         }
     }
 }

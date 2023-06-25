@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .navbar{
     width: 100%;
     color: white;
@@ -25,9 +27,23 @@
             span{
                 margin-left: 20px;
                 cursor: pointer;
+
+                @include tablet{
+                    display: none;
+                }
+
+                &.navbarmainlinks{
+                    @include tablet{
+                        display: block;
+                    }
+                }
             }
             img{
                 height: 25px;
+
+                @include mobile {
+                    display: none;
+                }
             }
         }
         .right{
